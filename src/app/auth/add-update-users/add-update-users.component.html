@@ -1,0 +1,70 @@
+<main class="main-pannel">
+    <div class="justify section-header">
+        <h1 class="edit">Add Employee</h1>
+        <!-- <button routerLink="/users" class="btn btn-primary back"  title="Back"><i class="fa fa-backward" aria-hidden="true"></i></button> -->
+    </div>
+    <div class="container-fluid pr-5 pl-5 pt-3">
+        <div class="row">
+            <form class="form-row viewForm w-100 pb-3" [formGroup]="Form" (ngSubmit)="onSubmit()">
+
+                <div class="col-md-4 mb-3">
+                    <label class="isRequired">Name</label>
+                    <input type="text" formControlName="employee_name" class="form-control" maxlength="20"
+                        [ngClass]="{ 'is-invalid': submitted && f.employee_name.errors }">
+
+                    <div *ngIf="submitted && f.employee_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.employee_name.errors.required">Name is required</div>
+                        <div *ngIf="f.employee_name.errors.pattern">Name is Invalid</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="isRequired">Salary</label>
+                    <input type="text" formControlName="employee_salary" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.employee_salary.errors }">
+
+                    <div *ngIf="submitted && f.employee_salary.errors" class="invalid-feedback">
+                        <div *ngIf="f.employee_salary.errors.required">Salary is required</div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="isRequired">Age</label>
+                    <input type="number" formControlName="employee_age" class="form-control" maxlength="100"
+                        [ngClass]="{ 'is-invalid': submitted && f.employee_age.errors }">
+
+                    <div *ngIf="submitted && f.employee_age.errors" class="invalid-feedback">
+                        <div *ngIf="f.employee_age.errors.required">age is required</div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <input type="file" #myFileInput (change)="uploadImage($event.target.files)"
+                            class="input-file w-100" title="Upload image" style=" cursor: pointer;">
+
+                    </div>
+
+
+                </div>
+                <!-- <div class="col-md-4 mb-3">
+                    <label >Mobile</label>
+                   
+                    <input type="number"  formControlName="mobileNo" class="form-control"  min="10"  placeholder=""
+                    [ngClass]="{ 'is-invalid': submitted && f.mobileNo.errors }">
+        
+                <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+                    <div *ngIf="f.mobileNo.errors.required">Mobile number is required</div>
+                    <div *ngIf="f.mobileNo.errors.min">Minimum 10 digits required</div>
+                    <div *ngIf="f.mobileNo.errors.max">Cannot exceed above 12 digits</div>
+                </div>
+                </div> -->
+
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</main>

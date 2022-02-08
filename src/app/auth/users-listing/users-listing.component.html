@@ -1,0 +1,47 @@
+<main class="main-pannel">
+  <h1 class="section-header">Users Listing</h1>
+
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+
+
+      <div class="text-right d-flex">
+
+
+        <button class="btn btn-secondary add" (click)="add()">
+          Add
+        </button>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="content-body inner-container bg-white text-muted">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Salary</th>
+              <th scope="col">Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of users; index as i">
+              <th scope="row">{{ item.id }}</th>
+              <td>
+
+                {{ item.employee_name }}
+              </td>
+              <td>{{ item.employee_age | number }}</td>
+              <td>{{ item.employee_salary | number }}</td>
+              <td>{{ item.profile_image }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</main>
